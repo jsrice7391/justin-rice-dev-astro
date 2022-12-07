@@ -1,43 +1,25 @@
 ---
-import { Icon } from 'astro-icon';
+import { Picture } from '@astrojs/image/components'
 
 const items = [
 	{
-		title: 'Headers',
+		title: 'Cloud Hippie',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:home',
+			'A side project working on teaching Cloud and DevOps through humanitarian based courses.',
+		url: "https://cloudhippie.com"
 	},
 	{
-		title: 'Footers',
+		title: 'Indigo Ag',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:faq',
+			'Full-Time Gig working on the Indigo Ag Platform. Helping farmers sustainably grow more food with less water.',
+		url: "https://www.indigoag.com/"
 	},
 	{
-		title: 'Features',
+		title: 'Shamen.io',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:video-projector',
-	},
-	{
-		title: 'Call-to-Action',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:video-projector',
-	},
-	{
-		title: 'Pricing',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:calculator',
-	},
-	{
-		title: 'Testimonial',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		icon: 'flat-color-icons:voice-presentation',
-	},
+			'A project helping put cannabis on the map. Helping good people find good medicine.',
+		url: "https://shamen.io"
+	}
 ];
 ---
 
@@ -46,28 +28,38 @@ const items = [
 	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
 		<div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
 			<div class="mb-8 text-center">
-				<p class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase">Components</p>
 				<h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
-					Most used widgets
+					I adore what I do.
 				</h2>
 				<p class="max-w-3xl mx-auto text-center text-xl text-gray-600 dark:text-slate-400">
-					Provides frequently used components for building websites using Tailwind CSS
+					This is my personal site where I share my thoughts, ideas, and projects.
 				</p>
 			</div>
 			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start my-12 dark:text-white">
 				{
-					items.map(({ title, description, icon }) => (
+					items.map(({ title, description, url }) => (
 						<div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800">
 							<div class="flex items-center mb-4">
-								<Icon name={icon} class="w-12 h-12" />
-
-								<div class="ml-4 text-xl font-bold">{title}</div>
+								<a href={url}><div class="ml-4 text-xl font-bold">{title}</div></a>	
 							</div>
 							<p class="text-gray-500 dark:text-gray-400 text-md">{description}</p>
 						</div>
 					))
 				}
 			</div>
+		</div>
+		<div class="relative m-auto max-w-4xl">
+			<Picture
+				src={import('~/assets/images/buddha.png')}
+				class="mx-auto rounded-md w-full"
+				widths={[400, 768, 1480]}
+				sizes="(max-width: 767px) 400px, (max-width: 1479px) 768px, 1480px"
+				alt="Hero Image"
+				aspectRatio={1480/833}
+				loading="eager"
+				width={830}
+				height={400}
+			/>
 		</div>
 	</div>
 </section>
